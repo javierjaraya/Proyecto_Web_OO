@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateArriendoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_idArriendo}" for="idArriendo" />
+                    <h:inputText id="idArriendo" value="#{arriendoController.selected.idArriendo}" title="#{bundle.CreateArriendoTitle_idArriendo}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_idArriendo}"/>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_fechaInicio}" for="fechaInicio" />
+                    <h:inputText id="fechaInicio" value="#{arriendoController.selected.fechaInicio}" title="#{bundle.CreateArriendoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_fechaInicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_fechaTermino}" for="fechaTermino" />
+                    <h:inputText id="fechaTermino" value="#{arriendoController.selected.fechaTermino}" title="#{bundle.CreateArriendoTitle_fechaTermino}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_fechaTermino}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_patente}" for="patente" />
+                    <h:inputText id="patente" value="#{arriendoController.selected.patente}" title="#{bundle.CreateArriendoTitle_patente}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_patente}"/>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{arriendoController.selected.precio}" title="#{bundle.CreateArriendoTitle_precio}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_rutUsuario}" for="rutUsuario" />
+                    <h:selectOneMenu id="rutUsuario" value="#{arriendoController.selected.rutUsuario}" title="#{bundle.CreateArriendoTitle_rutUsuario}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_rutUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateArriendoLabel_idOferta}" for="idOferta" />
+                    <h:selectOneMenu id="idOferta" value="#{arriendoController.selected.idOferta}" title="#{bundle.CreateArriendoTitle_idOferta}" required="true" requiredMessage="#{bundle.CreateArriendoRequiredMessage_idOferta}">
+                        <f:selectItems value="#{ofertaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{arriendoController.create}" value="#{bundle.CreateArriendoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{arriendoController.prepareList}" value="#{bundle.CreateArriendoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateArriendoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

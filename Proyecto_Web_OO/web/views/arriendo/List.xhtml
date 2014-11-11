@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListArriendoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListArriendoEmpty}" rendered="#{arriendoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{arriendoController.items.rowCount > 0}">
+                    <h:outputText value="#{arriendoController.pagination.pageFirstItem + 1}..#{arriendoController.pagination.pageLastItem + 1}/#{arriendoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{arriendoController.previous}" value="#{bundle.Previous} #{arriendoController.pagination.pageSize}" rendered="#{arriendoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{arriendoController.next}" value="#{bundle.Next} #{arriendoController.pagination.pageSize}" rendered="#{arriendoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{arriendoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_idArriendo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idArriendo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_fechaInicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaInicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_fechaTermino}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaTermino}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_patente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.patente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_precio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_rutUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rutUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArriendoTitle_idOferta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOferta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{arriendoController.prepareView}" value="#{bundle.ListArriendoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{arriendoController.prepareEdit}" value="#{bundle.ListArriendoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{arriendoController.destroy}" value="#{bundle.ListArriendoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{arriendoController.prepareCreate}" value="#{bundle.ListArriendoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListArriendoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewArriendoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewArriendoLabel_idArriendo}"/>
+                    <h:outputText value="#{arriendoController.selected.idArriendo}" title="#{bundle.ViewArriendoTitle_idArriendo}"/>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_fechaInicio}"/>
+                    <h:outputText value="#{arriendoController.selected.fechaInicio}" title="#{bundle.ViewArriendoTitle_fechaInicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_fechaTermino}"/>
+                    <h:outputText value="#{arriendoController.selected.fechaTermino}" title="#{bundle.ViewArriendoTitle_fechaTermino}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_patente}"/>
+                    <h:outputText value="#{arriendoController.selected.patente}" title="#{bundle.ViewArriendoTitle_patente}"/>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_precio}"/>
+                    <h:outputText value="#{arriendoController.selected.precio}" title="#{bundle.ViewArriendoTitle_precio}"/>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_rutUsuario}"/>
+                    <h:outputText value="#{arriendoController.selected.rutUsuario}" title="#{bundle.ViewArriendoTitle_rutUsuario}"/>
+                    <h:outputText value="#{bundle.ViewArriendoLabel_idOferta}"/>
+                    <h:outputText value="#{arriendoController.selected.idOferta}" title="#{bundle.ViewArriendoTitle_idOferta}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{arriendoController.destroyAndView}" value="#{bundle.ViewArriendoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewArriendoEditLink}"/>
+                <br />
+                <h:commandLink action="#{arriendoController.prepareCreate}" value="#{bundle.ViewArriendoCreateLink}" />
+                <br />
+                <h:commandLink action="#{arriendoController.prepareList}" value="#{bundle.ViewArriendoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewArriendoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
