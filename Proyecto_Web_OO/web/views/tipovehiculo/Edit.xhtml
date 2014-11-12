@@ -10,26 +10,48 @@
             <h:outputText value="#{bundle.EditTipovehiculoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-info" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-primary" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Tipos de vehiculos</h1>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditTipovehiculoLabel_idTipoVehiculo}" for="idTipoVehiculo" />
-                    <h:inputText id="idTipoVehiculo" value="#{tipovehiculoController.selected.idTipoVehiculo}" title="#{bundle.EditTipovehiculoTitle_idTipoVehiculo}" required="true" requiredMessage="#{bundle.EditTipovehiculoRequiredMessage_idTipoVehiculo}"/>
                     <h:outputLabel value="#{bundle.EditTipovehiculoLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{tipovehiculoController.selected.nombre}" title="#{bundle.EditTipovehiculoTitle_nombre}" required="true" requiredMessage="#{bundle.EditTipovehiculoRequiredMessage_nombre}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{tipovehiculoController.update}" value="#{bundle.EditTipovehiculoSaveLink}"/>
+                <br />
+                <h:commandLink action="#{tipovehiculoController.update}" value="Guardar cambios" class="btn btn-default"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditTipovehiculoViewLink}"/>
-                <br />
-                <h:commandLink action="#{tipovehiculoController.prepareList}" value="#{bundle.EditTipovehiculoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditTipovehiculoIndexLink}" />
+                <h:commandLink action="#{tipovehiculoController.prepareList}" value="Volver atras" immediate="true"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 

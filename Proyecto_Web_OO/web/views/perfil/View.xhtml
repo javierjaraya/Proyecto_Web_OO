@@ -10,6 +10,30 @@
             <h:outputText value="#{bundle.ViewPerfilTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/index" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-info" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Perfiles de usuario</h1>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -21,19 +45,18 @@
                     <h:outputText value="#{perfilController.selected.nombre}" title="#{bundle.ViewPerfilTitle_nombre}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{perfilController.destroyAndView}" value="#{bundle.ViewPerfilDestroyLink}"/>
+                <h:commandLink action="#{perfilController.destroyAndView}" value="Eliminar" class="btn btn-danger"/>
+                <h:link outcome="Edit" value="Editar" class="btn btn-warning"/>
+                <h:commandLink action="#{perfilController.prepareCreate}" value="Crear nuevo perfil" class="btn btn-success"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewPerfilEditLink}"/>
-                <br />
-                <h:commandLink action="#{perfilController.prepareCreate}" value="#{bundle.ViewPerfilCreateLink}" />
-                <br />
-                <h:commandLink action="#{perfilController.prepareList}" value="#{bundle.ViewPerfilShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewPerfilIndexLink}"/>
-
+                <h:commandLink action="#{perfilController.prepareList}" value="Volver atras"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 

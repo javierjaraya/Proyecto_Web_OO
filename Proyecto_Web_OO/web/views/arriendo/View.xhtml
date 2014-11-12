@@ -10,6 +10,29 @@
             <h:outputText value="#{bundle.ViewArriendoTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-info" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-primary" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Arriendos de vehiculos</h1>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -35,19 +58,18 @@
                     <h:outputText value="#{arriendoController.selected.idOferta}" title="#{bundle.ViewArriendoTitle_idOferta}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{arriendoController.destroyAndView}" value="#{bundle.ViewArriendoDestroyLink}"/>
+                <h:commandLink action="#{arriendoController.destroyAndView}" value="Eliminar" class="btn btn-danger"/>
+                <h:link outcome="Edit" value="Editar" class="btn btn-warning"/>
+                <h:commandLink action="#{arriendoController.prepareCreate}" value="Crear Arriendo" class="btn btn-success"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewArriendoEditLink}"/>
-                <br />
-                <h:commandLink action="#{arriendoController.prepareCreate}" value="#{bundle.ViewArriendoCreateLink}" />
-                <br />
-                <h:commandLink action="#{arriendoController.prepareList}" value="#{bundle.ViewArriendoShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewArriendoIndexLink}"/>
-
+                <h:commandLink action="#{arriendoController.prepareList}" value="Volver atras"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 

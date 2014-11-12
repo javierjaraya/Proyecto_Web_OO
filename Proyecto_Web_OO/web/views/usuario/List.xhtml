@@ -10,6 +10,30 @@
             <h:outputText value="#{bundle.ListUsuarioTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-primary" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-info" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Usuarios</h1>
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -78,20 +102,22 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{usuarioController.prepareView}" value="#{bundle.ListUsuarioViewLink}"/>
+                            <h:commandLink action="#{usuarioController.prepareView}" value="Ver"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{usuarioController.prepareEdit}" value="#{bundle.ListUsuarioEditLink}"/>
+                            <h:commandLink action="#{usuarioController.prepareEdit}" value="Editar"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{usuarioController.destroy}" value="#{bundle.ListUsuarioDestroyLink}"/>
+                            <h:commandLink action="#{usuarioController.destroy}" value="Eliminar"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{usuarioController.prepareCreate}" value="#{bundle.ListUsuarioCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListUsuarioIndexLink}"/>
+                <h:commandLink action="#{usuarioController.prepareCreate}" value="Crear Nuevo Usuario" class="btn btn-default"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 

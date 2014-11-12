@@ -10,25 +10,49 @@
             <h:outputText value="#{bundle.CreatePerfilTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-info" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Perfiles de usuario</h1>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePerfilLabel_idPerfil}" for="idPerfil" />
-                    <h:inputText id="idPerfil" value="#{perfilController.selected.idPerfil}" title="#{bundle.CreatePerfilTitle_idPerfil}" required="true" requiredMessage="#{bundle.CreatePerfilRequiredMessage_idPerfil}"/>
                     <h:outputLabel value="#{bundle.CreatePerfilLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{perfilController.selected.nombre}" title="#{bundle.CreatePerfilTitle_nombre}" required="true" requiredMessage="#{bundle.CreatePerfilRequiredMessage_nombre}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{perfilController.create}" value="#{bundle.CreatePerfilSaveLink}" />
+                <h:commandLink action="#{perfilController.create}" value="Crear Perfil" class="btn btn-default"/>
                 <br />
                 <br />
-                <h:commandLink action="#{perfilController.prepareList}" value="#{bundle.CreatePerfilShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreatePerfilIndexLink}"/>
+                <h:link outcome="List" value="Volver atras"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 

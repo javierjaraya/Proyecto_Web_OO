@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Sistema Arriendo Vehiculos</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="/resources/css/estilos.css" media="screen" />
+    </h:head>
+    <h:body>
+        Sistema Arriendo de Vehiculos
+        <br />
+        <div class='navbar navbar-inverse navbar-fixed-top'>
+            <div class="navbar-inner">
+                <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-primary" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    
+                </div>
+            </div>
+        </div><!-- mainmenu -->
+        
+        <div class="container">
+            <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}'></h:commandButton>
+                </h:form>
+            <div class="page-header">
+                <h1>Sistema Arriendo de vehiculos</h1>
+                <img src="http://localhost:8080/Proyecto_Web_OO/faces/resources/images/banner.jpg" alt="Baner de la pagina" />
+            </div>
+            
+            <div class="footer text-center">
+                <p>Pie de pagina</p>
+            </div>
+        </div>
+    </h:body>
+</html>
+

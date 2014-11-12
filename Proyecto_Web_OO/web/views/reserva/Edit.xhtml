@@ -10,20 +10,42 @@
             <h:outputText value="#{bundle.EditReservaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/admin" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/reserva/List" class="btn btn-info" value="Reservas"></h:button>
+                        <h:button outcome="/views/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/tipovehiculo/List" class="btn btn-primary" value="Tipos de Vehiculos"></h:button>
+                        <h:button outcome="/views/perfil/List" class="btn btn-primary" value="Perfiles"></h:button>
+                        <h:button outcome="/views/usuario/List" class="btn btn-primary" value="Usuarios"></h:button>
+                        <h:button outcome="/views/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Reservas de  arriendo</h1>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditReservaLabel_idReserva}" for="idReserva" />
-                    <h:inputText id="idReserva" value="#{reservaController.selected.idReserva}" title="#{bundle.EditReservaTitle_idReserva}" required="true" requiredMessage="#{bundle.EditReservaRequiredMessage_idReserva}"/>
                     <h:outputLabel value="#{bundle.EditReservaLabel_fechaInicio}" for="fechaInicio" />
                     <h:inputText id="fechaInicio" value="#{reservaController.selected.fechaInicio}" title="#{bundle.EditReservaTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditReservaRequiredMessage_fechaInicio}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditReservaLabel_fechaTermino}" for="fechaTermino" />
                     <h:inputText id="fechaTermino" value="#{reservaController.selected.fechaTermino}" title="#{bundle.EditReservaTitle_fechaTermino}" required="true" requiredMessage="#{bundle.EditReservaRequiredMessage_fechaTermino}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditReservaLabel_abono}" for="abono" />
                     <h:inputText id="abono" value="#{reservaController.selected.abono}" title="#{bundle.EditReservaTitle_abono}" />
@@ -38,16 +60,17 @@
                         <f:selectItems value="#{vehiculoController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{reservaController.update}" value="#{bundle.EditReservaSaveLink}"/>
+                <br />
+                <h:commandLink action="#{reservaController.update}" value="Guardar cambios" class="btn btn-default"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditReservaViewLink}"/>
-                <br />
-                <h:commandLink action="#{reservaController.prepareList}" value="#{bundle.EditReservaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditReservaIndexLink}" />
+                <h:commandLink action="#{reservaController.prepareList}" value="Volver atras" immediate="true"/>
             </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>
 
