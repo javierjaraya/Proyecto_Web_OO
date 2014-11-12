@@ -49,7 +49,9 @@ public class Sistema {
     }
     
     public String validar(){
-        //boolean result = UsuarioDAO.login(rut, password);
+        //UsuarioDAO usuarioDAO = new UsuarioDAO();
+        //boolean result = usuarioDAO.login(rut, password);
+        //if(result){
         if(rut.equals("18771223-8") && password.equalsIgnoreCase("123456")){
             httpSerletRequest.getSession().setAttribute("administrador", rut);
             facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso correcto", null);

@@ -41,7 +41,7 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_fecha}" for="fecha" />
                     <h:inputText id="fecha" value="#{mensajeController.selected.fecha}" title="#{bundle.CreateMensajeTitle_fecha}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_hora}" for="hora" />
                     <h:inputText id="hora" value="#{mensajeController.selected.hora}" title="#{bundle.CreateMensajeTitle_hora}" >

@@ -27,7 +27,7 @@ public class UsuarioDAO {
             
             con = DriverManager.getConnection(db, user, pass);
             
-            ps = con.prepareStatement("SELECT rut, password FROM usuario where rut = ? and password = ? ");
+            ps = con.prepareStatement("SELECT rut_usuario, password FROM usuario where rut_usuario = ? and password = ? ");
             ps.setString(1, rut);
             ps.setString(2, password);
             
