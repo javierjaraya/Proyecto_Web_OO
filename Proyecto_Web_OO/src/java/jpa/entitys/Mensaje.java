@@ -6,7 +6,9 @@
 package jpa.entitys;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -74,6 +76,9 @@ public class Mensaje implements Serializable {
     private Usuario rutDestino;
 
     public Mensaje() {
+        Calendar cal =  new GregorianCalendar();
+        this.fecha = cal.getTime();
+        this.hora = cal.getTime();
     }
 
     public Mensaje(Integer idMensaje) {

@@ -135,8 +135,8 @@ public class Oferta implements Serializable {
         this.precio = precio;
     }
 
-    public boolean getEstado() {
-        return estado;
+    public String getEstado() {
+        return estado ? "Si" :  "No";
     }
 
     public void setEstado(boolean estado) {
@@ -182,7 +182,7 @@ public class Oferta implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entitys.Oferta[ idOferta=" + idOferta + " ]";
+        return idOferta + " $ "+precio;
     }
     
 }

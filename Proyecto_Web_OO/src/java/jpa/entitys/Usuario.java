@@ -242,7 +242,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entitys.Usuario[ rutUsuario=" + rutUsuario + " ]";
+        return rutUsuario;
     }
     
 }

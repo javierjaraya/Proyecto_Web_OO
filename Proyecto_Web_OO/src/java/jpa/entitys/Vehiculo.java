@@ -215,24 +215,24 @@ public class Vehiculo implements Serializable {
         this.transmision = transmision;
     }
 
-    public boolean getAirbag() {
-        return airbag;
+    public String getAirbag() {
+        return airbag ? "Si" : "No";
     }
 
     public void setAirbag(boolean airbag) {
         this.airbag = airbag;
     }
 
-    public boolean getSistemaAbs() {
-        return sistemaAbs;
+    public String getSistemaAbs() {
+        return sistemaAbs ? "Si" : "No";
     }
 
     public void setSistemaAbs(boolean sistemaAbs) {
         this.sistemaAbs = sistemaAbs;
     }
 
-    public boolean getAireAcondicionado() {
-        return aireAcondicionado;
+    public String getAireAcondicionado() {
+        return aireAcondicionado ? "Si" : "No";
     }
 
     public void setAireAcondicionado(boolean aireAcondicionado) {
@@ -247,8 +247,8 @@ public class Vehiculo implements Serializable {
         this.numeroChasis = numeroChasis;
     }
 
-    public boolean getEstado() {
-        return estado;
+    public String getEstado() {
+        return  estado ? "Activo" : "Inactivo";
     }
 
     public void setEstado(boolean estado) {
@@ -303,7 +303,7 @@ public class Vehiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entitys.Vehiculo[ patente=" + patente + " ]";
+        return patente;
     }
     
 }

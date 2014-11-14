@@ -39,14 +39,6 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateMensajeLabel_fecha}" for="fecha" />
-                    <h:inputText id="fecha" value="#{mensajeController.selected.fecha}" title="#{bundle.CreateMensajeTitle_fecha}" >
-                        <f:convertDateTime pattern="dd/MM/yyyy" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateMensajeLabel_hora}" for="hora" />
-                    <h:inputText id="hora" value="#{mensajeController.selected.hora}" title="#{bundle.CreateMensajeTitle_hora}" >
-                        <f:convertDateTime pattern="HH:mm:ss" />
-                    </h:inputText>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_asunto}" for="asunto" />
                     <h:inputText id="asunto" value="#{mensajeController.selected.asunto}" title="#{bundle.CreateMensajeTitle_asunto}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_asunto}"/>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_mensaje}" for="mensaje" />

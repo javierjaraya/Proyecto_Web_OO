@@ -108,7 +108,7 @@ public class Tipovehiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entitys.Tipovehiculo[ idTipoVehiculo=" + idTipoVehiculo + " ]";
+        return nombre;
     }
     
 }
