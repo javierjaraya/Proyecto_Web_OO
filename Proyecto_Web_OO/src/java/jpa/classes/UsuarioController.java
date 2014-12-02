@@ -78,6 +78,18 @@ public class UsuarioController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
+    
+    public Usuario validate(String rut, String password){
+        try {
+            System.out.println("En el usuario controller .....");
+            Usuario u = getFacade().validar(rut, password);
+            //JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
+            return u;
+        } catch (Exception e) {
+            //JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
 
     public String create() {
         try {

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListVehiculoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/user/vehiculo/List" class="btn btn-info" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Vehiculos</h1>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListVehiculoEmpty}" rendered="#{vehiculoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{vehiculoController.items.rowCount > 0}">
+                    <h:outputText value="#{vehiculoController.pagination.pageFirstItem + 1}..#{vehiculoController.pagination.pageLastItem + 1}/#{vehiculoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{vehiculoController.previous}" value="#{bundle.Previous} #{vehiculoController.pagination.pageSize}" rendered="#{vehiculoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{vehiculoController.next}" value="#{bundle.Next} #{vehiculoController.pagination.pageSize}" rendered="#{vehiculoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{vehiculoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_patente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.patente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_marca}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marca}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_modelo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modelo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_km}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.km}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_año}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.año}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_precio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_color}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.color}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_cilindrada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cilindrada}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_transmision}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transmision}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_airbag}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.airbag}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_sistemaAbs}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sistemaAbs}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_aireAcondicionado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.aireAcondicionado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListVehiculoTitle_numeroChasis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroChasis}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{vehiculoController.prepareView}" value="Ver"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+            </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

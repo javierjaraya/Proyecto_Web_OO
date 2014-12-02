@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVehiculoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/user/vehiculo/List" class="btn btn-info" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Vehiculos</h1>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_patente}" for="patente" />
+                    <h:inputText id="patente" value="#{vehiculoController.selected.patente}" title="#{bundle.EditVehiculoTitle_patente}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_patente}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{vehiculoController.selected.marca}" title="#{bundle.EditVehiculoTitle_marca}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_marca}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_modelo}" for="modelo" />
+                    <h:inputText id="modelo" value="#{vehiculoController.selected.modelo}" title="#{bundle.EditVehiculoTitle_modelo}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_modelo}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_km}" for="km" />
+                    <h:inputText id="km" value="#{vehiculoController.selected.km}" title="#{bundle.EditVehiculoTitle_km}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_km}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_año}" for="año" />
+                    <h:inputText id="año" value="#{vehiculoController.selected.año}" title="#{bundle.EditVehiculoTitle_año}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_año}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{vehiculoController.selected.precio}" title="#{bundle.EditVehiculoTitle_precio}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_color}" for="color" />
+                    <h:inputText id="color" value="#{vehiculoController.selected.color}" title="#{bundle.EditVehiculoTitle_color}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_color}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_cilindrada}" for="cilindrada" />
+                    <h:inputText id="cilindrada" value="#{vehiculoController.selected.cilindrada}" title="#{bundle.EditVehiculoTitle_cilindrada}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_cilindrada}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_transmision}" for="transmision" />
+                    <h:inputText id="transmision" value="#{vehiculoController.selected.transmision}" title="#{bundle.EditVehiculoTitle_transmision}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_transmision}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_airbag}" for="airbag" />
+                    <h:inputText id="airbag" value="#{vehiculoController.selected.airbag}" title="#{bundle.EditVehiculoTitle_airbag}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_airbag}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_sistemaAbs}" for="sistemaAbs" />
+                    <h:inputText id="sistemaAbs" value="#{vehiculoController.selected.sistemaAbs}" title="#{bundle.EditVehiculoTitle_sistemaAbs}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_sistemaAbs}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_aireAcondicionado}" for="aireAcondicionado" />
+                    <h:inputText id="aireAcondicionado" value="#{vehiculoController.selected.aireAcondicionado}" title="#{bundle.EditVehiculoTitle_aireAcondicionado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_aireAcondicionado}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_numeroChasis}" for="numeroChasis" />
+                    <h:inputText id="numeroChasis" value="#{vehiculoController.selected.numeroChasis}" title="#{bundle.EditVehiculoTitle_numeroChasis}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_numeroChasis}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{vehiculoController.selected.estado}" title="#{bundle.EditVehiculoTitle_estado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_estado}"/>
+                    <h:outputLabel value="#{bundle.EditVehiculoLabel_idTipoVehiculo}" for="idTipoVehiculo" />
+                    <h:selectOneMenu id="idTipoVehiculo" value="#{vehiculoController.selected.idTipoVehiculo}" title="#{bundle.EditVehiculoTitle_idTipoVehiculo}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_idTipoVehiculo}">
+                        <f:selectItems value="#{tipovehiculoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{vehiculoController.update}" value="Guardar cambios" class="btn btn-default"/>
+                <br />
+                <br />
+                <h:commandLink action="#{vehiculoController.prepareList}" value="Volver atras" immediate="true"/>
+            </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

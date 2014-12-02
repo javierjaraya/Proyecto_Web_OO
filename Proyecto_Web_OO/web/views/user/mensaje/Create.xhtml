@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMensajeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class='navbar navbar-inverse navbar-fixed-top'>
+                <div class="navbar-inner">
+                    <div class="container">
+                        <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
+                        <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                        <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
+                        <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                        <h:button outcome="/views/user/mensaje/List" class="btn btn-info" value="Mensajes"></h:button>
+                    </div>
+                </div>
+            </div><!-- mainmenu -->
+
+            <div class="container">
+                <h:form>
+                    <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
+                    <h:commandButton value="Salir" action='#{sistema.cerrar()}' class="btn btn-default"></h:commandButton>
+                </h:form>
+                <div class="page-header">
+                    <h1>Mensajes</h1>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMensajeLabel_asunto}" for="asunto" />
+                    <h:inputText id="asunto" value="#{mensajeController.selected.asunto}" title="#{bundle.CreateMensajeTitle_asunto}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_asunto}"/>
+                    <h:outputLabel value="#{bundle.CreateMensajeLabel_mensaje}" for="mensaje" />
+                    <h:inputText id="mensaje" value="#{mensajeController.selected.mensaje}" title="#{bundle.CreateMensajeTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_mensaje}"/>
+                    <h:outputLabel value="#{bundle.CreateMensajeLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{mensajeController.selected.estado}" title="#{bundle.CreateMensajeTitle_estado}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_estado}"/>
+                    <h:outputLabel value="#{bundle.CreateMensajeLabel_rutOrigen}" for="rutOrigen" />
+                    <h:selectOneMenu id="rutOrigen" value="#{mensajeController.selected.rutOrigen}" title="#{bundle.CreateMensajeTitle_rutOrigen}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_rutOrigen}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMensajeLabel_rutDestino}" for="rutDestino" />
+                    <h:selectOneMenu id="rutDestino" value="#{mensajeController.selected.rutDestino}" title="#{bundle.CreateMensajeTitle_rutDestino}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_rutDestino}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mensajeController.create}" value="Enviar Mensaje" class="btn btn-default"/>
+                <br />
+                <br />
+                <h:commandLink action="#{mensajeController.prepareList}" value="Volver atras" immediate="true"/>
+            </h:form>
+                    </div>
+                <div class="footer text-center">
+                    <p>Pie de pagina</p>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>
