@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-info" value="Mensajes"></h:button>
                     </div>
@@ -35,8 +34,6 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewMensajeLabel_idMensaje}"/>
-                    <h:outputText value="#{mensajeController.selected.idMensaje}" title="#{bundle.ViewMensajeTitle_idMensaje}"/>
                     <h:outputText value="#{bundle.ViewMensajeLabel_fecha}"/>
                     <h:outputText value="#{mensajeController.selected.fecha}" title="#{bundle.ViewMensajeTitle_fecha}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -49,16 +46,11 @@
                     <h:outputText value="#{mensajeController.selected.asunto}" title="#{bundle.ViewMensajeTitle_asunto}"/>
                     <h:outputText value="#{bundle.ViewMensajeLabel_mensaje}"/>
                     <h:outputText value="#{mensajeController.selected.mensaje}" title="#{bundle.ViewMensajeTitle_mensaje}"/>
-                    <h:outputText value="#{bundle.ViewMensajeLabel_estado}"/>
-                    <h:outputText value="#{mensajeController.selected.estado}" title="#{bundle.ViewMensajeTitle_estado}"/>
-                    <h:outputText value="#{bundle.ViewMensajeLabel_rutOrigen}"/>
-                    <h:outputText value="#{mensajeController.selected.rutOrigen}" title="#{bundle.ViewMensajeTitle_rutOrigen}"/>
                     <h:outputText value="#{bundle.ViewMensajeLabel_rutDestino}"/>
                     <h:outputText value="#{mensajeController.selected.rutDestino}" title="#{bundle.ViewMensajeTitle_rutDestino}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{mensajeController.destroyAndView}" value="Eliminar" class="btn btn-danger"/>
-                <h:link outcome="Edit" value="Editar" class="btn btn-warning"/>
                 <h:commandLink action="#{mensajeController.prepareCreate}" value="Enviar Mensaje" class="btn btn-success"/>
                 <br />
                 <br />

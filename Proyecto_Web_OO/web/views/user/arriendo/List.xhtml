@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-info" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
                     </div>
@@ -40,12 +39,6 @@
                             <h:commandLink action="#{arriendoController.previous}" value="#{bundle.Previous} #{arriendoController.pagination.pageSize}" rendered="#{arriendoController.pagination.hasPreviousPage}"/>&nbsp;
                             <h:commandLink action="#{arriendoController.next}" value="#{bundle.Next} #{arriendoController.pagination.pageSize}" rendered="#{arriendoController.pagination.hasNextPage}"/>&nbsp;
                             <h:dataTable value="#{arriendoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListArriendoTitle_idArriendo}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.idArriendo}"/>
-                                </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{bundle.ListArriendoTitle_fechaInicio}"/>
@@ -82,24 +75,12 @@
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListArriendoTitle_idOferta}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.idOferta}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
                                         <h:outputText value="&nbsp;"/>
                                     </f:facet>
                                     <h:commandLink action="#{arriendoController.prepareView}" value="Ver"/>
-                                    <h:outputText value=" "/>
-                                    <h:commandLink action="#{arriendoController.prepareEdit}" value="Editar"/>
-                                    <h:outputText value=" "/>
-                                    <h:commandLink action="#{arriendoController.destroy}" value="Eliminar"/>
                                 </h:column>
                             </h:dataTable>
                         </h:panelGroup>
-                        <br />
-                        <h:commandLink action="#{arriendoController.prepareCreate}" value="Crear Arriendo" class="btn btn-default"/>
                     </h:form>
                 </div>
                 <div class="footer text-center">

@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-info" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
                     </div>
@@ -45,12 +44,8 @@
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateReservaLabel_abono}" for="abono" />
                     <h:inputText id="abono" value="#{reservaController.selected.abono}" title="#{bundle.CreateReservaTitle_abono}" />
-                    <h:outputLabel value="#{bundle.CreateReservaLabel_estado}" for="estado" />
-                    <h:inputText id="estado" value="#{reservaController.selected.estado}" title="#{bundle.CreateReservaTitle_estado}" required="true" requiredMessage="#{bundle.CreateReservaRequiredMessage_estado}"/>
                     <h:outputLabel value="#{bundle.CreateReservaLabel_rutUsuario}" for="rutUsuario" />
-                    <h:selectOneMenu id="rutUsuario" value="#{reservaController.selected.rutUsuario}" title="#{bundle.CreateReservaTitle_rutUsuario}" required="true" requiredMessage="#{bundle.CreateReservaRequiredMessage_rutUsuario}">
-                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <h:inputText id="rutUsuario" value="#{reservaController.selected.rutUsuario}" title="#{bundle.CreateReservaTitle_rutUsuario}" required="true" requiredMessage="#{bundle.CreateReservaRequiredMessage_rutUsuario}" disabled="false"/>
                     <h:outputLabel value="#{bundle.CreateReservaLabel_patente}" for="patente" />
                     <h:selectOneMenu id="patente" value="#{reservaController.selected.patente}" title="#{bundle.CreateReservaTitle_patente}" required="true" requiredMessage="#{bundle.CreateReservaRequiredMessage_patente}">
                         <f:selectItems value="#{vehiculoController.itemsAvailableSelectOne}"/>

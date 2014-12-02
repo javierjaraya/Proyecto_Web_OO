@@ -5,7 +5,7 @@
     <h:head>
         <title>Sistema Arriendo Vehiculos</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
-        
+
         <link rel="stylesheet" type="text/css" href="/resources/css/estilos.css" media="screen" />
     </h:head>
     <h:body>
@@ -14,26 +14,25 @@
         <div class='navbar navbar-inverse navbar-fixed-top'>
             <div class="navbar-inner">
                 <div class="container">
-                        <h:button outcome="/views/user/user" class="btn btn-info" value="Inicio"/>
-                        <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
-                        <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
-                        <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
-                        <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
+                    <h:button outcome="/views/user/user" class="btn btn-info" value="Inicio"/>
+                    <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
+                    <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
+                    <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
+                    <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
                 </div>
             </div>
         </div><!-- mainmenu -->
-        
+
         <div class="container">
-            <h:form>
+            <div class="page-header">
+                <h:form>
                     <h:outputText value='Usuario: #{sistema.rut} '></h:outputText>
                     <h:commandButton value="Salir" action='#{sistema.cerrar()}'></h:commandButton>
                 </h:form>
-            <div class="page-header">
                 <h1>Sistema Arriendo de vehiculos</h1>
-                <img src="http://localhost:8080/Proyecto_Web_OO/faces/resources/images/banner.jpg" alt="Baner de la pagina" />
+                <img src="http://localhost:8080/Proyecto_Web_OO/faces/resources/images/banner.jpg" alt="Baner de la pagina"/>
             </div>
-            
+
             <div class="footer text-center">
                 <p>Pie de pagina</p>
             </div>

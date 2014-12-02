@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-info" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-primary" value="Mensajes"></h:button>
                     </div>
@@ -35,29 +34,19 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewArriendoLabel_idArriendo}"/>
-                    <h:outputText value="#{arriendoController.selected.idArriendo}" title="#{bundle.ViewArriendoTitle_idArriendo}"/>
                     <h:outputText value="#{bundle.ViewArriendoLabel_fechaInicio}"/>
                     <h:outputText value="#{arriendoController.selected.fechaInicio}" title="#{bundle.ViewArriendoTitle_fechaInicio}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewArriendoLabel_fechaTermino}"/>
                     <h:outputText value="#{arriendoController.selected.fechaTermino}" title="#{bundle.ViewArriendoTitle_fechaTermino}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewArriendoLabel_patente}"/>
                     <h:outputText value="#{arriendoController.selected.patente}" title="#{bundle.ViewArriendoTitle_patente}"/>
                     <h:outputText value="#{bundle.ViewArriendoLabel_precio}"/>
                     <h:outputText value="#{arriendoController.selected.precio}" title="#{bundle.ViewArriendoTitle_precio}"/>
-                    <h:outputText value="#{bundle.ViewArriendoLabel_rutUsuario}"/>
-                    <h:outputText value="#{arriendoController.selected.rutUsuario}" title="#{bundle.ViewArriendoTitle_rutUsuario}"/>
-                    <h:outputText value="#{bundle.ViewArriendoLabel_idOferta}"/>
-                    <h:outputText value="#{arriendoController.selected.idOferta}" title="#{bundle.ViewArriendoTitle_idOferta}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{arriendoController.destroyAndView}" value="Eliminar" class="btn btn-danger"/>
-                <h:link outcome="Edit" value="Editar" class="btn btn-warning"/>
-                <h:commandLink action="#{arriendoController.prepareCreate}" value="Crear Arriendo" class="btn btn-success"/>
                 <br />
                 <br />
                 <h:commandLink action="#{arriendoController.prepareList}" value="Volver atras"/>

@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-info" value="Mensajes"></h:button>
                     </div>
@@ -38,13 +37,13 @@
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_asunto}" for="asunto" />
                     <h:inputText id="asunto" value="#{mensajeController.selected.asunto}" title="#{bundle.CreateMensajeTitle_asunto}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_asunto}"/>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_mensaje}" for="mensaje" />
-                    <h:inputText id="mensaje" value="#{mensajeController.selected.mensaje}" title="#{bundle.CreateMensajeTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_mensaje}"/>
-                    <h:outputLabel value="#{bundle.CreateMensajeLabel_estado}" for="estado" />
-                    <h:inputText id="estado" value="#{mensajeController.selected.estado}" title="#{bundle.CreateMensajeTitle_estado}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_estado}"/>
+                    <h:inputTextarea id="mensaje" value="#{mensajeController.selected.mensaje}" title="#{bundle.CreateMensajeTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_mensaje}"/>
+                    
+                    
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_rutOrigen}" for="rutOrigen" />
-                    <h:selectOneMenu id="rutOrigen" value="#{mensajeController.selected.rutOrigen}" title="#{bundle.CreateMensajeTitle_rutOrigen}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_rutOrigen}">
-                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <h:inputText id="rutOrigen" value="#{mensajeController.selected.rutOrigen}" title="#{bundle.CreateMensajeTitle_rutOrigen}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_rutOrigen}"/>
+                    
+                    
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_rutDestino}" for="rutDestino" />
                     <h:selectOneMenu id="rutDestino" value="#{mensajeController.selected.rutDestino}" title="#{bundle.CreateMensajeTitle_rutDestino}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_rutDestino}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>

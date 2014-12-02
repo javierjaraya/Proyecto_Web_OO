@@ -28,8 +28,8 @@ public class Sistema {
     public Sistema() {
         facesContext = FacesContext.getCurrentInstance();
         httpSerletRequest = (HttpServletRequest) facesContext.getExternalContext().getRequest();
-        if (httpSerletRequest.getSession().getAttribute("administrador") != null) {
-            rut = httpSerletRequest.getSession().getAttribute("administrador").toString();
+        if (httpSerletRequest.getSession().getAttribute("rut") != null) {
+            rut = httpSerletRequest.getSession().getAttribute("rut").toString();
         }
     }
 

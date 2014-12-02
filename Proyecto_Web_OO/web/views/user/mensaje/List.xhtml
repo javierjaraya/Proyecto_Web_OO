@@ -16,7 +16,6 @@
                         <h:button outcome="/views/user/user" class="btn btn-primary" value="Inicio"/>
                         <h:button outcome="/views/user/arriendo/List" class="btn btn-primary" value="Arriendos"></h:button>
                         <h:button outcome="/views/user/reserva/List" class="btn btn-primary" value="Reservas"></h:button>
-                        <h:button outcome="/views/user/oferta/List" class="btn btn-primary" value="Ofertas"></h:button>
                         <h:button outcome="/views/user/vehiculo/List" class="btn btn-primary" value="Vehiculos"></h:button>
                         <h:button outcome="/views/user/mensaje/List" class="btn btn-info" value="Mensajes"></h:button>
                     </div>
@@ -40,12 +39,6 @@
                     <h:commandLink action="#{mensajeController.previous}" value="#{bundle.Previous} #{mensajeController.pagination.pageSize}" rendered="#{mensajeController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{mensajeController.next}" value="#{bundle.Next} #{mensajeController.pagination.pageSize}" rendered="#{mensajeController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{mensajeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMensajeTitle_idMensaje}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idMensaje}"/>
-                        </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMensajeTitle_fecha}"/>
@@ -76,12 +69,6 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMensajeTitle_estado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estado}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMensajeTitle_rutOrigen}"/>
                             </f:facet>
                             <h:outputText value="#{item.rutOrigen}"/>
@@ -97,9 +84,6 @@
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{mensajeController.prepareView}" value="Ver"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{mensajeController.prepareEdit}" value="Editar"/>
-                            <h:outputText value=" "/>
                             <h:commandLink action="#{mensajeController.destroy}" value="Eliminar"/>
                         </h:column>
                     </h:dataTable>

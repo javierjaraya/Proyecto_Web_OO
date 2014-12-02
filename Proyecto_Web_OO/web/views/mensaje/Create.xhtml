@@ -42,7 +42,7 @@
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_asunto}" for="asunto" />
                     <h:inputText id="asunto" value="#{mensajeController.selected.asunto}" title="#{bundle.CreateMensajeTitle_asunto}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_asunto}"/>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_mensaje}" for="mensaje" />
-                    <h:inputText id="mensaje" value="#{mensajeController.selected.mensaje}" title="#{bundle.CreateMensajeTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_mensaje}"/>
+                    <h:inputTextarea id="mensaje" value="#{mensajeController.selected.mensaje}" title="#{bundle.CreateMensajeTitle_mensaje}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_mensaje}"/>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_estado}" for="estado" />
                     <h:inputText id="estado" value="#{mensajeController.selected.estado}" title="#{bundle.CreateMensajeTitle_estado}" required="true" requiredMessage="#{bundle.CreateMensajeRequiredMessage_estado}"/>
                     <h:outputLabel value="#{bundle.CreateMensajeLabel_rutOrigen}" for="rutOrigen" />
